@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.4.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>demo</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<springfox-version>2.9.2</springfox-version>
+		<default.package>com.example.demo</default.package>
+		<build.number>SNAPSHOT</build.number>
+		<version.swagger.codegen>2.2.1</version.swagger.codegen>
+		<version.swagger.codegen>2.2.1</version.swagger.codegen>
+		<java.version>11</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.github.kongchen</groupId>
+			<artifactId>swagger-maven-plugin</artifactId>
+			<version>3.1.2</version>
+		</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>2.9.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>2.9.2</version>
+			</dependency>
+			
+			 <!-- https://mvnrepository.com/artifact/junit/junit -->
+			<dependency>
+			    <groupId>junit</groupId>
+			    <artifactId>junit</artifactId>
+			    <version>4.13</version>
+			    <scope>test</scope>
+			</dependency>
+			 
+	        <dependency>
+			  <groupId>org.mockito</groupId>
+			  <artifactId>mockito-core</artifactId>
+			  <version>2.11.0</version>
+			  <scope>compile</scope>
+			</dependency>
+
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+		
+			<plugin>
+			    <!-- Generates swagger.json -->
+			    <groupId>com.github.kongchen</groupId>
+			    <artifactId>swagger-maven-plugin</artifactId>
+			    <version>3.1.7</version>
+			    <executions>
+			        <execution>
+			            <phase>compile</phase>
+			            <goals>
+			                <goal>generate</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			    <configuration>
+			        <apiSources>
+			            <apiSource>
+			                <springmvc>true</springmvc>
+			                <locations>com.example.demo</locations>
+			                  
+			                <info>
+			                    <title>example</title>
+			                    <description>
+			                    This is the documentation for this project
+			                    </description>
+			                   
+			                    <version>0.0.1</version>
+			                </info>
+			                <swaggerDirectory>${project.basedir}/src/main/resources</swaggerDirectory>
+			                <swaggerFileName>swagger</swaggerFileName>
+			                <outputFormats>json,yaml</outputFormats>
+			                <attachSwaggerArtifact>true</attachSwaggerArtifact>
+			            </apiSource>
+			        </apiSources>
+			    </configuration>
+			     
+			</plugin>
+			
+		</plugins>
+	</build>
+
+</project>

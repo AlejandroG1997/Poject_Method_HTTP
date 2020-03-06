@@ -1,0 +1,55 @@
+---
+swagger: "2.0"
+info:
+  description: "This is the documentation for this project"
+  version: "0.0.1"
+  title: "example"
+paths:
+  /rest/borrar:
+    delete:
+      operationId: "añjbg"
+      parameters:
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+  /rest/ch:
+    get:
+      operationId: "hotdog"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+  /rest/home:
+    get:
+      operationId: "home"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+  /rest/tos/{id}:
+    post:
+      operationId: "akj"
+      parameters:
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "lastName"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
